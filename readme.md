@@ -66,8 +66,7 @@ Ensure the following tools are installed:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-folder>
+   git clone https://github.com/gururani1997/PubSubMicroService
    ```
 2. Install dependencies
    npm install
