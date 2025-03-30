@@ -1,0 +1,30 @@
+{
+  "name": "receiver-service",
+  "version": "1.0.0",
+  "description": "A Node.js application that integrates AWS SQS, and MongoDB for queue management, data storage, and background task processing. The app provides an API built with Express, with Swagger UI for interactive API documentation. It also includes JWT authentication, cron jobs for scheduled tasks, and environment variable management with dotenv. The application is structured to ensure efficient communication between services with SQS and data is stored in MongoDB. It is optimized for scalability and security with a focus on robust backend operations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-swagger": "node swaggerConfig.js",
+    "start": "npm run generate-swagger && node app.js"
+  },
+  "keywords": [],
+  "author": "Pankaj Gururani",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.777.0",
+    "@redis/client": "^1.6.0",
+    "aws-sdk": "^2.1692.0",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.0",
+    "node-cron": "^3.0.3",
+    "nodemon": "^3.1.9",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0"
+  }
+}
