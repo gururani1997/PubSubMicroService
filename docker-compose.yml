@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  app1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://18.235.183.202:27017/taskRequstSide
+      AWS_REGION: us-east-1
+      SQS_QUEUE_URL: https://sqs.us-east-1.amazonaws.com/746158423436/sqs-store-data
+    depends_on:
+      - mongo
+
+  app2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      MONGO_URI: mongodb://18.235.183.202:27017/taskRequstSide
+      AWS_REGION: us-east-1
+      SQS_QUEUE_URL: https://sqs.us-east-1.amazonaws.com/746158423436/sqs-store-data
+    depends_on:
+      - mongo
+
+  app3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    environment:
+      MONGO_URI: mongodb://18.235.183.202:27017/taskRequstSide
+      AWS_REGION: us-east-1
+      SQS_QUEUE_URL: https://sqs.us-east-1.amazonaws.com/746158423436/sqs-store-data
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:5
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
